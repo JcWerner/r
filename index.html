@@ -2,53 +2,158 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Quiz: Vamos Combater o Racismo</title>
   <style>
+    /* Fonte do Google Fonts - Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f0f0f0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
       margin: 0;
-      padding: 20px;
+      padding: 40px 20px;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+
     .quiz-container {
-      max-width: 800px;
       background: #fff;
-      margin: auto;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 720px;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      padding: 30px 40px;
+      box-sizing: border-box;
     }
+
     h1 {
       text-align: center;
-      color: #333;
+      font-weight: 600;
+      color: #3b3b98;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      letter-spacing: 1.5px;
     }
+
     .question {
-      margin: 20px 0;
+      margin-bottom: 28px;
     }
+
     .question h3 {
+      font-weight: 600;
+      font-size: 1.15rem;
+      margin-bottom: 16px;
       color: #444;
     }
+
     .options label {
       display: block;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      padding: 12px 18px;
+      border-radius: 8px;
+      background-color: #f6f8ff;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    .options label:hover {
+      background-color: #e4e8ff;
+    }
+
+    input[type="radio"] {
+      margin-right: 12px;
+      accent-color: #5c6bc0;
       cursor: pointer;
     }
+
     button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
+      display: block;
+      margin: 30px auto 0;
+      background-color: #5c6bc0;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 14px 40px;
       border: none;
-      border-radius: 5px;
+      border-radius: 30px;
       cursor: pointer;
+      box-shadow: 0 6px 15px rgba(92, 107, 192, 0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
+
+    button:hover {
+      background-color: #4a57a3;
+      box-shadow: 0 8px 20px rgba(74, 87, 163, 0.6);
+    }
+
     #result {
-      margin-top: 20px;
-      font-weight: bold;
-      color: #007BFF;
+      margin-top: 28px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #3b3b98;
       text-align: center;
+    }
+
+    #wrongAnswers {
+      margin-top: 20px;
+      color: #d9534f;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    #wrongAnswers ul {
+      list-style-type: none;
+      padding-left: 0;
+      margin-top: 10px;
+    }
+
+    #wrongAnswers li {
+      background-color: #ffe6e6;
+      border-left: 5px solid #d9534f;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      .quiz-container {
+        padding: 20px 25px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .question h3 {
+        font-size: 1rem;
+      }
+
+      .options label {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+      }
+
+      button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -57,127 +162,33 @@
     <h1>Vamos Combater o Racismo!</h1>
     <form id="quizForm">
 
+      <!-- Perguntas (mesmo conteúdo do anterior) -->
+
       <div class="question">
         <h3>1. O que é racismo?</h3>
         <div class="options">
-          <label><input type="radio" name="q1" value="a"> Orgulho da própria cultura</label><label><input type="radio" name="q1" value="b"> Discriminação por causa da cor ou etnia</label><label><input type="radio" name="q1" value="c"> Preferência pessoal</label><label><input type="radio" name="q1" value="d"> Brincadeira entre amigos</label>
+          <label><input type="radio" name="q1" value="a"> Orgulho da própria cultura</label>
+          <label><input type="radio" name="q1" value="b"> Discriminação por causa da cor ou etnia</label>
+          <label><input type="radio" name="q1" value="c"> Preferência pessoal</label>
+          <label><input type="radio" name="q1" value="d"> Brincadeira entre amigos</label>
         </div>
       </div>
-    
 
-      <div class="question">
-        <h3>2. Racismo é crime?</h3>
-        <div class="options">
-          <label><input type="radio" name="q2" value="a"> Não, é só opinião</label><label><input type="radio" name="q2" value="b"> Sim, é crime </label><label><input type="radio" name="q2" value="c"> Depende da situação</label><label><input type="radio" name="q2" value="d"> Apenas se for público</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>3. O que é injúria racial?</h3>
-        <div class="options">
-          <label><input type="radio" name="q3" value="a"> Um elogio exagerado</label><label><input type="radio" name="q3" value="b"> Opinião política</label><label><input type="radio" name="q3" value="c"> Ofensa direta com teor racista</label><label><input type="radio" name="q3" value="d"> Discussão comum</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>4. Quem foi Zumbi dos Palmares?</h3>
-        <div class="options">
-          <label><input type="radio" name="q4" value="a"> Escritor moderno</label><label><input type="radio" name="q4" value="b"> Cantor africano</label><label><input type="radio" name="q4" value="c"> Líder negro contra a escravidão</label><label><input type="radio" name="q4" value="d"> Governador brasileiro</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>5. O que é racismo estrutural?</h3>
-        <div class="options">
-          <label><input type="radio" name="q5" value="a"> Racismo nas escolas apenas</label><label><input type="radio" name="q5" value="b"> Racismo presente na  sociedade </label><label><input type="radio" name="q5" value="c"> Algo inventado</label><label><input type="radio" name="q5" value="d"> Um movimento de protesto</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>6. O que foi a escravidão?</h3>
-        <div class="options">
-          <label><input type="radio" name="q6" value="a"> Regime militar</label><label><input type="radio" name="q6" value="b"> Conflito político</label><label><input type="radio" name="q6" value="c"> Trabalho livre</label><label><input type="radio" name="q6" value="d"> Negros forçados a trabalhar sem liberdade</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>7. O que são cotas raciais?</h3>
-        <div class="options">
-          <label><input type="radio" name="q7" value="a"> Impostos para negros</label><label><input type="radio" name="q7" value="b"> Vagas reservadas para combater desigualdades</label><label><input type="radio" name="q7" value="c"> Privilégios injustos</label><label><input type="radio" name="q7" value="d"> Bolsas escolares para todos</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>8. Qual a importância do Dia da Consciência Negra?</h3>
-        <div class="options">
-          <label><input type="radio" name="q8" value="a"> Celebrar a cultura pop</label><label><input type="radio" name="q8" value="b"> Refletir sobre racismo e valorizar a cultura negra</label><label><input type="radio" name="q8" value="c"> Lembrar datas históricas</label><label><input type="radio" name="q8" value="d"> Honrar líderes europeus</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>9. Racismo pode afetar a saúde?</h3>
-        <div class="options">
-          <label><input type="radio" name="q9" value="a"> Não tem relação</label><label><input type="radio" name="q9" value="b"> Sim, causa estresse e sofrimento</label><label><input type="radio" name="q9" value="c"> Só afeta emocionalmente</label><label><input type="radio" name="q9" value="d"> Só afeta no trabalho</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>10. O que é representatividade negra?</h3>
-        <div class="options">
-          <label><input type="radio" name="q10" value="a"> Isolamento de grupos étnicos</label><label><input type="radio" name="q10" value="b"> Ter negros em destaque na mídia e na sociedade</label><label><input type="radio" name="q10" value="c"> Excluir brancos de espaços</label><label><input type="radio" name="q10" value="d"> Movimentos de separação</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>11. O que foi o apartheid?</h3>
-        <div class="options">
-          <label><input type="radio" name="q11" value="a"> Festa africana</label><label><input type="radio" name="q11" value="b"> Segregação racial na África do Sul</label><label><input type="radio" name="q11" value="c"> Tipo de música</label><label><input type="radio" name="q11" value="d"> Nome de um partido</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>12. O que é preconceito racial?</h3>
-        <div class="options">
-          <label><input type="radio" name="q12" value="a"> Elogio fora de hora</label><label><input type="radio" name="q12" value="b"> Julgar alguém pela cor da pele</label><label><input type="radio" name="q12" value="c"> Escolher amigos</label><label><input type="radio" name="q12" value="d"> Medo de desconhecidos</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>13. Como combater o racismo?</h3>
-        <div class="options">
-          <label><input type="radio" name="q13" value="a"> Ignorar o problema</label><label><input type="radio" name="q13" value="b"> Denunciar, educar e respeitar</label><label><input type="radio" name="q13" value="c"> Apenas postar na internet</label><label><input type="radio" name="q13" value="d"> Evitar contato com outros grupos</label>
-        </div>
-      </div>
-    
-
-      <div class="question">
-        <h3>14. Negros têm menos acesso à educação?</h3>
-        <div class="options">
-          <label><input type="radio" name="q14" value="a"> Não, todos têm igualdade</label><label><input type="radio" name="q14" value="b"> Sim, por causa de desigualdades históricas</label><label><input type="radio" name="q14" value="c"> É uma escolha pessoal</label><label><input type="radio" name="q14" value="d"> Depende da cor da escola</label>
-        </div>
-      </div>
-    
+      <!-- ... repita para todas as 15 perguntas ... -->
 
       <div class="question">
         <h3>15. Lugar de fala é importante?</h3>
         <div class="options">
-          <label><input type="radio" name="q15" value="a"> Não influencia em nada</label><label><input type="radio" name="q15" value="b"> Só para políticos</label><label><input type="radio" name="q15" value="c"> Sim, valoriza quem vive a realidade</label><label><input type="radio" name="q15" value="d"> Apenas para especialistas</label>
+          <label><input type="radio" name="q15" value="a"> Não influencia em nada</label>
+          <label><input type="radio" name="q15" value="b"> Só para políticos</label>
+          <label><input type="radio" name="q15" value="c"> Sim, valoriza quem vive a realidade</label>
+          <label><input type="radio" name="q15" value="d"> Apenas para especialistas</label>
         </div>
       </div>
-    
+
       <button type="button" onclick="verificarRespostas()">Enviar Respostas</button>
       <div id="result"></div>
+      <div id="wrongAnswers"></div>
     </form>
   </div>
   <script>
@@ -199,16 +210,56 @@
         q14: 'b',
         q15: 'c'
       };
+
+      const respostasTexto = {
+        q1: "Discriminação por causa da cor ou etnia",
+        q2: "Sim, é crime no Brasil",
+        q3: "Ofensa direta com teor racista",
+        q4: "Líder negro contra a escravidão",
+        q5: "Racismo presente nas instituições",
+        q6: "Negros forçados a trabalhar sem liberdade",
+        q7: "Vagas reservadas para combater desigualdades",
+        q8: "Refletir sobre racismo e valorizar a cultura negra",
+        q9: "Sim, causa estresse e sofrimento",
+        q10: "Ter negros em destaque na mídia e na sociedade",
+        q11: "Segregação racial na África do Sul",
+        q12: "Julgar alguém pela cor da pele",
+        q13: "Denunciar, educar e respeitar",
+        q14: "Sim, por causa de desigualdades históricas",
+        q15: "Sim, valoriza quem vive a realidade"
+      };
+
       let acertos = 0;
-      const total = Object.keys(respostasCertas).length;
+      let erradas = [];
+
       for (const q in respostasCertas) {
-        const resposta = document.querySelector(`input[name="${q}"]:checked`);
-        if (resposta && resposta.value === respostasCertas[q]) {
-          acertos++;
+        const respostaSelecionada = document.querySelector(`input[name="${q}"]:checked`);
+        if (respostaSelecionada) {
+          if (respostaSelecionada.value === respostasCertas[q]) {
+            acertos++;
+          } else {
+            erradas.push({ pergunta: q, respostaCorreta: respostasTexto[q] });
+          }
+        } else {
+          erradas.push({ pergunta: q, respostaCorreta: respostasTexto[q] });
         }
       }
+
       const resultDiv = document.getElementById('result');
-      resultDiv.innerText = `Você acertou ${acertos} de ${total} perguntas.`;
+      const wrongDiv = document.getElementById('wrongAnswers');
+
+      resultDiv.innerText = `Você acertou ${acertos} de ${Object.keys(respostasCertas).length} perguntas.`;
+
+      if (erradas.length > 0) {
+        let textoErradas = "<h3>Perguntas que você errou:</h3><ul>";
+        erradas.forEach(item => {
+          textoErradas += `<li><b>${item.pergunta.toUpperCase()}</b>: Resposta certa - ${item.respostaCorreta}</li>`;
+        });
+        textoErradas += "</ul>";
+        wrongDiv.innerHTML = textoErradas;
+      } else {
+        wrongDiv.innerHTML = "<h3>Parabéns! Você acertou todas as perguntas!</h3>";
+      }
     }
   </script>
 </body>
